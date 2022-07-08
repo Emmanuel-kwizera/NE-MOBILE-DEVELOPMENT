@@ -15,17 +15,7 @@ export const register = async (data) => {
 }
 
 export const login = async (data) => {
-    return axios.post(API_URL + '/auth/login', data)
-        .then((res) => {
-            return res?.data
-            console.log(res?.data);
-        })
-        .catch((err) => {
-            return err?.response?.data;
-            console.log(res?.response?.data);
-        }
-        )
-
+    return await axios.post(API_URL + '/auth/login', data);
 }
 
 export const getProfile = async () => {

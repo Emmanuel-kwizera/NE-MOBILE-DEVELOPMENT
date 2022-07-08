@@ -76,16 +76,18 @@ exports.login = async (req, res) => {
       {
         userId: user._id,
         phone: user.phone,
+        email: user.email,
+        nationalId: user.nationalId,
+        role: user.role,
       },
       "mivote_secret",
       { expiresIn: "1d" }
     );
-    user.token = token;
 
     return res.status(200).send({
       success: true,
       message: "User logged in!",
-      data: user,
+      data: { user, token },
     });
   } catch (err) {
     return res.status(400).send({ success: false, message: err.message });
