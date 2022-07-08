@@ -91,3 +91,9 @@ exports.login = async (req, res) => {
     return res.status(400).send({ success: false, message: err.message });
   }
 };
+
+exports.getAll = async (req, res) => {
+  const users = await User.find();
+  if (users) { res.send({ success: true, data: users }).status(201); } else return next(new ErrorMessage("Users not found", 404));
+
+}

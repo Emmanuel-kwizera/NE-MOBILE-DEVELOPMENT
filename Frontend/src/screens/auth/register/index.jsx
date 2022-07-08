@@ -100,6 +100,7 @@ const SignUp = ({ navigation }) => {
             {touched.email && errors.email && (
               <Text style={tw`text-red-500`}>{errors.email}</Text>
             )}
+
             <View style={tw`mt-4`}></View>
             <Input
               Icon={<Feather name="phone" size={24} color="silver" />}
@@ -112,11 +113,12 @@ const SignUp = ({ navigation }) => {
             {touched.phone && errors.phone && (
               <Text style={tw`text-red-500`}>{errors.phone}</Text>
             )}
+
             <View style={tw`mt-4`}></View>
             <Input
-              Icon={<Feather name="user" size={24} color="silver" />}
-              placeholder="National Id"
-              onChangeText={handleChange("natioalId")}
+              Icon={<Feather name="folder" size={24} color="silver" />}
+              placeholder="National Id Number"
+              onChangeText={handleChange("nationalId")}
               onBlur={handleBlur("nationalId")}
               value={values.nationalId}
               borderColor={

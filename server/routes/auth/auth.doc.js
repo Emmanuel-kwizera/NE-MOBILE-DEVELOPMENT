@@ -43,7 +43,7 @@ const registerUser = {
             password: {
               type: "string",
               description: "the user's password",
-              example: "123!!user",
+              example: "123@user",
               required: true,
             },
             nationalId: {
@@ -115,7 +115,7 @@ const loginUser = {
             password: {
               type: 'string',
               description: "the user's password",
-              example: '123!!user',
+              example: '123@user',
               required: true,
             },
           },
