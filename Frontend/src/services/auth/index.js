@@ -32,7 +32,8 @@ export const getProfile = async () => {
         }
     })
         .then((res) => {
-            return res?.data
+            console.log(res?.data)
+            // return res?.data
         }
         )
         .catch((err) => {

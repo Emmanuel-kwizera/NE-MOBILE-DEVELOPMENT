@@ -39,13 +39,13 @@ const Login = ({ navigation }) => {
   } = formik;
 
   const handleSubmit = async () => {
-    setLoading(true);
-    setAuthError("");
-    const res = await login(values);
-    setLoading(false);
-    if (!res?.success)
-      return setAuthError(res?.message || "Something went wrong");
-    await SecureStore.setItemAsync("token", res?.data?.token);
+    // setLoading(true);
+    // setAuthError("");
+    // const res = await login(values);
+    // setLoading(false);
+    // if (!res?.success)
+    //   return setAuthError(res?.message || "Something went wrong");
+    // await SecureStore.setItemAsync("token", res?.data?.token);
     navigation.navigate("Onboard");
   };
 

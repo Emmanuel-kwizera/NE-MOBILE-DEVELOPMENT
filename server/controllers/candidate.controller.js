@@ -47,3 +47,26 @@ exports.getCandidatesByPoll = async (req, res) => {
     return res.status(400).send(error.message);
   }
 };
+
+
+exports.getAllCandidates = async (req, res) => {
+  try {
+    const candidates = await Candidate.find({}).populate("poll");
+    return res
+      .status(200)
+      .send({ message: "Candidates retrieved!", data: candidates });
+  } catch (error) {
+    return res.status(400).send(error.message);
+  }
+};
+
+exports.getCandidateById = async (req, res) => {
+  try {
+    const candidate = await Candidate.findById(req.params.id).populate("poll");
+    return res
+      .status(200)
+      .send({ message: "Candidate retrieved!", data: candidate });
+  } catch (error) {
+    return res.status(400).send(error.message);
+  }
+};
