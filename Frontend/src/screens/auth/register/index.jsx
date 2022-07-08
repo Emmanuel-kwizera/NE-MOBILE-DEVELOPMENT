@@ -14,7 +14,7 @@ const SignUp = ({ navigation }) => {
   const [authError, setAuthError] = useState("");
 
   const initialValues = {
-    name: "",
+    names: "",
     email: "",
     phone: "",
     nationalId: "",
@@ -22,7 +22,7 @@ const SignUp = ({ navigation }) => {
     password: "",
   };
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required("Name is required"),
+    names: Yup.string().required("Name is required"),
     email: Yup.string().email("Invalid email").required("Email is required"),
     phone: Yup.string().required("Phone is required"),
     nationalId: Yup.string().required("National Id is required"),
@@ -79,13 +79,13 @@ const SignUp = ({ navigation }) => {
                 <MaterialIcons name="person-outline" size={24} color="silver" />
               }
               placeholder="Full Name"
-              onChangeText={handleChange("name")}
-              onBlur={handleBlur("name")}
-              value={values.name}
-              borderColor={touched.name && errors.name ? "red" : "gray"}
+              onChangeText={handleChange("names")}
+              onBlur={handleBlur("names")}
+              value={values.names}
+              borderColor={touched.names && errors.names ? "red" : "gray"}
             />
-            {touched.name && errors.name && (
-              <Text style={tw`text-red-500`}>{errors.name}</Text>
+            {touched.names && errors.names && (
+              <Text style={tw`text-red-500`}>{errors.names}</Text>
             )}
 
             <View style={tw`mt-4`}></View>
