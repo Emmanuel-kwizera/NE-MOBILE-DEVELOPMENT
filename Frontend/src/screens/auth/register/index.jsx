@@ -18,6 +18,7 @@ const SignUp = ({ navigation }) => {
     email: "",
     phone: "",
     nationalId: "",
+    address: "",
     password: "",
   };
   const validationSchema = Yup.object().shape({
@@ -25,6 +26,7 @@ const SignUp = ({ navigation }) => {
     email: Yup.string().email("Invalid email").required("Email is required"),
     phone: Yup.string().required("Phone is required"),
     nationalId: Yup.string().required("National Id is required"),
+    address: Yup.string().required("Adress is required"),
     password: Yup.string().required("Password is required"),
   });
 
@@ -123,6 +125,19 @@ const SignUp = ({ navigation }) => {
             />
             {touched.nationalId && errors.nationalId && (
               <Text style={tw`text-red-500`}>{errors.nationalId}</Text>
+            )}
+
+            <View style={tw`mt-4`}></View>
+            <Input
+              Icon={<Feather name="map-pin" size={24} color="silver" />}
+              placeholder="Address"
+              onChangeText={handleChange("address")}
+              onBlur={handleBlur("address")}
+              value={values.address}
+              borderColor={touched.address && errors.address ? "red" : "gray"}
+            />
+            {touched.address && errors.address && (
+              <Text style={tw`text-red-500`}>{errors.address}</Text>
             )}
 
             <View style={tw`mt-4`}>
